@@ -1,22 +1,22 @@
 # **Привет мир!**
 
-##*Я узнал про markdown.*
+## *Я узнал про markdown.*
 
  
 
-#Markdown
+# Markdown
 
 Вы тоже можете узнать про markdown из статей:
 
-* [Ссылка на Wikipedia RU] (https://ru.wikipedia.org/wiki/Markdown)
+* [Ссылка на Wikipedia RU](https://ru.wikipedia.org/wiki/Markdown)
 
-* [Ссылка на Wikipedia EN] (https://en.wikipedia.org/wiki/Markdown)
+* [Ссылка на Wikipedia EN](https://en.wikipedia.org/wiki/Markdown)
 
-* [Ссылка на GitHub] (https://guides.github.com/features/mastering-markdown/)
+* [Ссылка на GitHub](https://guides.github.com/features/mastering-markdown/)
 
  
 
-#**Markdown в деталях**
+# **Markdown в деталях**
 
 Filename extensions | .md, .markdown[1][2]
 
