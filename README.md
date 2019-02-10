@@ -30,3 +30,7 @@ Type of format | Markup language
 Extended to | MultiMarkdown, Markdown Extra, CommonMark[6]
 Open format? | yes[7]
 Website | http://daringfireball.net/projects/markdown
+
+# Реальный пример
+
+[Ссылка](https://github.com/Microsoft/TypeScript/blob/master/README.md)
