@@ -167,3 +167,201 @@ body
 {
     margin-left: 120px;
 }
+
+.main-abbilites
+{
+    background-color: #fff;
+    width: 100%;
+    height: 400px;
+    margin-top: 30px;
+    box-sizing: border-box;
+    padding: 15px 15px 35px 15px;
+}
+
+.main-abbilites-top
+{
+    width: 100%;
+    height: 105px;
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+.main-abbilites-top-abbility
+{
+    width: 80px;
+    height: 80px;
+    display: inline-block;
+    margin-left: 19px; 
+}
+
+.main-abbilites-top-abbility-img
+{
+    width: 100%;
+    height: 100%;
+}
+
+#icon-ability-first
+{
+    background: url(../images/ability1.png) center center no-repeat;
+}
+
+#icon-ability-second
+{
+    background: url(../images/ability2.png) center center no-repeat;
+}
+
+#icon-ability-third
+{
+    background: url(../images/ability3.png) center center no-repeat;
+}
+
+#icon-ability-fourth
+{
+    background: url(../images/ability4.png) center center no-repeat;
+}
+
+#icon-ability-fifth
+{
+    background: url(../images/ability5.png) center center no-repeat;
+}
+
+#icon-ability-sixth
+{
+    background: url(../images/ability6.png) center center no-repeat;
+}
+
+.main-abbilites-top-abbility-title
+{
+    font-size: 13px;
+    color: #7E8894;
+    margin-top: 10px;
+}
+
+.main-abbilites-bot
+{
+    margin: 20px 20px 20px 5px;
+    width: 100%;
+    height: 200px;
+    text-align: left;
+}
+
+.main-abbilites-bot-leftside
+{
+    float: left;
+    width: 270px;
+    color: #34495E;
+}
+
+.main-abbilites-bot-leftside progress
+{
+    border: none;
+    height: 14px;
+    width: 100%;
+    border-radius: 100px;
+}
+
+.main-abbilites-bot-leftside progress::-webkit-progress-bar
+{
+    background: #DBE1E8;
+    border-radius: 100px;
+}
+
+.main-abbilites-bot-leftside progress::-webkit-progress-value
+{
+    background: #10CDC1; 
+    border-radius: 100px;
+}
+
+.main-abbilites-bot-leftside-Photoshop img
+{
+    position: relative;
+    left: 115px;
+    top: 5px;
+    margin-bottom: 5px;
+}
+
+.main-abbilites-bot-leftside-Illustrator img
+{
+    position: relative;
+    left: 55px;
+    top: 5px;
+    margin-bottom: 5px;
+}
+
+.main-abbilites-bot-leftside-Wordpress img
+{
+    position: relative;
+    left: 155px;
+    top: 5px;
+    margin-bottom: 5px;
+}
+
+.main-abbilites-bot-leftside-Prestashop img
+{
+    position: relative;
+    left: 125px;
+    top: 5px;
+    margin-bottom: 5px;
+}
+
+
+/*abilitys right side*/
+
+.main-abbilites-bot-rightside
+{
+    float: right;
+    width: 270px;
+    margin-right: 5px;
+}
+
+.main-abbilites-bot-rightside progress
+{
+    border: none;
+    height: 14px;
+    width: 100%;
+    border-radius: 100px;
+}
+
+.main-abbilites-bot-rightside progress::-webkit-progress-bar
+{
+    background: #DBE1E8;
+    border-radius: 100px;
+}
+
+.main-abbilites-bot-rightside progress::-webkit-progress-value
+{
+    background: #16C4EC; 
+    border-radius: 100px;
+}
+
+.main-abbilites-bot-leftside-Referencement img
+{
+    position: relative;
+    left: -20px;
+    top: 5px;
+    margin-bottom: 5px;
+}
+
+.main-abbilites-bot-leftside-Reseaux img
+{
+    position: relative;
+    left: 65px;
+    top: 5px;
+    margin-bottom: 5px;
+}
+
+.main-abbilites-bot-leftside-UIDesign img
+{
+    position: relative;
+    left: 55px;
+    top: 5px;
+    margin-bottom: 5px;
+}
+
+.main-abbilites-bot-leftside-Userexperiecne img
+{
+    position: relative;
+    left: 20px;
+    top: 5px;
+    margin-bottom: 5px;
+}
