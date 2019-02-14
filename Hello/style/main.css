@@ -1,0 +1,169 @@
+body
+{
+    font-family: 'Lato', sans-serif;
+    background-color: #EAEDF1;
+}
+
+
+.main-layout
+{
+    display: inline-block;
+    text-align: center;
+    width: 1350px;
+    margin-left: 80px;
+}
+
+/*left side*/
+
+.main-left-side
+{
+    float: left;
+    width: 47%;
+    height:1190px;
+}
+
+.main-info
+{
+    margin-top: 30px;
+    background-color: #fff;
+    height: auto;
+    width: 100%;
+    padding: 30px 10px 20px 25px;
+    text-align: left;
+    box-sizing: border-box;
+}
+
+.main-info-title
+{
+    font-family: 'Signika', sans-serif;
+    font-size: 24px;
+    color: #33495F;
+}
+
+.main-info-comment
+{
+    margin-left: 15px;
+    color: #9EA7B4;
+    font-size: 18px;
+}
+
+.main-info-text
+{
+    color: #04BCA6;
+    font-size: 22px;
+    font-family: 'Signika', sans-serif;
+}
+
+.main-left-side ul
+{
+    margin-top: 25px;
+    list-style-image: url("../images/ul-style.PNG");
+    padding-left: 30px;
+    line-height: 35px; 
+    color: #33495F;
+}
+
+.main-info-footer
+{
+    margin-top: 30px;
+    margin-left: 5px;
+}
+
+.main-info-footer-city
+{
+    display: inline-block;
+    color: #9EA7B4;
+    margin-left: 10px;
+    width: 120px;
+}
+
+.main-info-footer-date
+{
+    display: inline-block;
+    color: #9EA7B4;
+    width: 200px;
+    margin-left: 5px;
+}
+
+.main-info-footer-url
+{
+    display: inline-block;
+    height: 40px;
+    width: 220px;
+    background-color: #16C4EC;
+    text-align: center;
+    border-radius: 3px;
+    text-decoration-line: none;
+}
+
+.main-info-footer-url div
+{
+    color: white;
+    margin-top: 10px; 
+}
+
+.main-info-footer-url-grey
+{
+    background-color: #B0BBCA;
+}
+
+/*MIDDLE LINE*/
+
+.main-middle-line
+{
+    background: url("../images/middle-line.png") center 0 no-repeat;
+    float: left;
+    height: 1190px;
+    width: 7%;
+    margin-top: 30px;
+}
+
+/* RIGHT SIDE*/
+.main-right-side
+{
+    float: right;
+    width: 46%;
+    height: 1190px;
+}
+
+.main-info-right
+{
+    background-color: #DBE1E8;
+}
+
+.main-info-comment-right
+{
+    margin-left: 8px;
+    font-size: 16px;
+}
+
+.main-info-text-right
+{
+    font-size: 18px;
+    color: #00B9D8;
+}
+
+.main-info-footer-right
+{
+    font-size: 14px;
+    color: #33495F;
+    margin-left: 0px; 
+}
+
+.main-info-footer-url-cyan
+{
+    background-color: #10CDC1;
+    width: 210px;
+}
+
+.main-right-side hr
+{
+    border: 1px dashed #C5CCD6;
+    margin-top: 35px;
+    margin-bottom: 35px;
+}
+
+.main-info-footer-stars
+{
+    margin-left: 120px;
+}
