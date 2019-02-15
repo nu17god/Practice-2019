@@ -2,24 +2,45 @@ body
 {
     font-family: 'Lato', sans-serif;
     background-color: #EAEDF1;
+    width: 100%;
+    
+}
+
+.main
+{
+    text-align: center;
+    width: 100%;
+    min-height: 1190px;
 }
 
 
 .main-layout
 {
     display: inline-block;
-    text-align: center;
     width: 1350px;
-    margin-left: 80px;
 }
 
-/*left side*/
-
-.main-left-side
+.main-layout-left
 {
     float: left;
     width: 47%;
     height:1190px;
+}
+
+.main-layout-middle
+{
+    background: url("../images/middle-line.png") center 0 no-repeat;
+    float: left;
+    height: 1190px;
+    width: 7%;
+    margin-top: 30px;
+}
+
+.main-layout-right
+{
+    float: right;
+    width: 46%;
+    height: 1190px;
 }
 
 .main-info
@@ -54,7 +75,7 @@ body
     font-family: 'Signika', sans-serif;
 }
 
-.main-left-side ul
+.main-layout-left ul
 {
     margin-top: 25px;
     list-style-image: url("../images/ul-style.PNG");
@@ -105,25 +126,6 @@ body
 .main-info-footer-url-grey
 {
     background-color: #B0BBCA;
-}
-
-/*MIDDLE LINE*/
-
-.main-middle-line
-{
-    background: url("../images/middle-line.png") center 0 no-repeat;
-    float: left;
-    height: 1190px;
-    width: 7%;
-    margin-top: 30px;
-}
-
-/* RIGHT SIDE*/
-.main-right-side
-{
-    float: right;
-    width: 46%;
-    height: 1190px;
 }
 
 .main-info-right

@@ -2,13 +2,13 @@
 {
     min-height: 120px;
     width: 100%;
+    text-align: center;
 }
 
 .footer-layout
 {
     margin-left: 80px;
     display: inline-block;
-    text-align: center;
     width: 1350px;
     height: 50px;
 }

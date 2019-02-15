@@ -1,19 +1,19 @@
-.header-layout
+.header
 {
     min-height: 300px;
     width: 100%;
+    text-align: center;
 }
 
-.head-layout
+.header-layout
 {
     margin-top: 80px;
     display: inline-block;
-    text-align: center;
     width: 1350px;
-    margin-left: 80px;
+    /*margin-left: 80px;*/
 }
 
-.profile-layout
+.header-layout-profile
 {
     float: left;
     width: 32%;
@@ -22,7 +22,7 @@
     background-color: #fff;
 }
 
-.profile-nameinfo-layout
+.header-layout-profile-main
 {
     margin: 0;
     margin-left: 23px;
@@ -31,14 +31,22 @@
     height: auto;
 }
 
-.profile-nameinfo-layout::after
+.header-layout-profile-main::after
 {
     display: table;
     content: " ";
     clear: both;
 }
 
-.profile-name-layout
+.header-layout-profile-main-avatar
+{
+    background: url(../images/photo.png) no-repeat 100% 100%;
+    min-width: 150px;
+    min-height: 150px;
+    float: left;
+}
+
+.header-layout-profile-main-name
 {
     float: left;
     margin-left: 45px;
@@ -46,17 +54,17 @@
     font-size: 20px;
 }
 
-.profile-name-layout p:first-child
+.header-layout-profile-main-name p:first-child
 {
     margin: 0;
-    margin-top: 50px;
+    margin-top: 45px;
     font-size: 30px;
     color: #33495F ;
     font-family: 'Signika', sans-serif;
     font-weight: normal;
 }
 
-.profile-name-layout p:last-child
+.header-layout-profile-main-name p:last-child
 {
     font-size: 18px;
     color: #586879 ;
@@ -65,21 +73,13 @@
     margin: 0;
 }
 
-.profile-avatar-layout
-{
-    background: url(../images/photo.png) no-repeat 100% 100%;
-    min-width: 150px;
-    min-height: 150px;
-    float: left;
-}
-
-.profile-maininfo-layout
+.header-layout-profile-info
 {
     width: 100%;
     margin-top: 35px;
 }
 
-.profile-maininfo-layout div
+.header-layout-profile-info div
 {
     display: inline-block;
     width: 25%;
@@ -90,37 +90,43 @@
     line-height: 105px;
 }
 
-.profile-maininfo-layout div:first-child
+.header-layout-profile-info div:first-child
 {
     background: url(../images/profileinfo1.png) #16C4EC no-repeat 49% 32% ;
 }
 
-.profile-maininfo-layout div:nth-child(2)
+.header-layout-profile-info div:nth-child(2)
 {
     background: url(../images/profileinfo2.png) #FA5351 no-repeat 49% 32%;
 }
 
-.profile-maininfo-layout div:nth-child(3)
+.header-layout-profile-info div:nth-child(3)
 {
     background: url(../images/profileinfo3.png) #10CDC1 no-repeat 49% 32%; 
 }
 
-.profile-maininfo-layout div:last-child
+.header-layout-profile-info div:last-child
 {
     background: url(../images/profileinfo4.png) #33495F no-repeat 49% 31%;
 }
 
+.header-layout-rightside
+{
+    float: right;
+    width: 62%;
+    min-height: 300px;
+    background-color: #fff;
+}
 
-/* RIGHT SIDE*/
-
-.info-layout
+.header-layout-rightside-info
 {
     float: left;
     width: 54%;
     margin-top: 20px;
+    padding-left: 5px;
 }
 
-.info-layout span
+.header-layout-rightside-info span
 {
     margin: 0;
     font-size: 38px;
@@ -130,7 +136,7 @@
     padding-top: 0; 
 }
 
-.info-layout p
+.header-layout-rightside-info p
 {
     text-align: justify;
     font-size: 18px;
@@ -139,13 +145,38 @@
     margin-left: 30px;
 }
 
-.info-layout a
+.header-layout-rightside-info a
 {
     text-decoration: none;
     color:#16C4EC;
 }
 
-.e-mail-layout
+.header-layout-rightside-info-url
+{
+    float: left;
+    width: 100%;
+    height: 50px;
+}
+
+.header-layout-rightside-info-url div
+{
+    height: 50px;
+    width: 16%;
+    float: left;
+    margin-bottom: 10px;
+}
+
+.header-layout-rightside-info-url a
+{
+    margin-left: 25px;
+}
+
+.header-layout-rightside-info-url a:first-child
+{
+    margin-left: 10px;
+}
+
+.header-layout-rightside-e-mail
 {
     font-family: 'Signika', sans-serif;
     vertical-align: center;
@@ -155,52 +186,20 @@
     margin-right: 25px;
 }
 
-.e-mail-layout p:first-child
+.header-layout-rightside-e-mail p:first-child
 {
     margin-right: 50px;
-    margin-top: 0;
+    margin-top: 10px;
+    margin-bottom: 15px;
     color: #33495F ;
     font-size: 24px;
 }
 
-.e-mail-layout p:nth-child(2)
+.header-layout-rightside-e-mail p:nth-child(2)
 {
     margin:0;
     color: #FA5351 ;
     font-size: 20px;
 }
 
-.rightside-layout
-{
-    float: right;
-    width: 62%;
-    min-height: 300px;
-    background-color: #fff;
-}
-
-.rightside-info-url
-{
-    float: left;
-    width: 100%;
-    height: 50px;
-}
-
-.rightside-info-url div
-{
-    height: 50px;
-    width: 16%;
-    float: left;
-    margin-bottom: 10px;
-}
-
-.rightside-info-url a
-{
-    margin-left: 25px;
-}
-
-.rightside-info-url a:first-child
-{
-    margin-left: 10px;
-}
-/*STYLE*/
 
