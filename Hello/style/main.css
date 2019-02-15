@@ -84,6 +84,13 @@ body
     color: #33495F;
 }
 
+.main-layout-right hr
+{
+    border: 1px dashed #C5CCD6;
+    margin-top: 35px;
+    margin-bottom: 35px;
+}
+
 .main-info-footer
 {
     margin-top: 30px;
@@ -156,13 +163,6 @@ body
 {
     background-color: #10CDC1;
     width: 210px;
-}
-
-.main-right-side hr
-{
-    border: 1px dashed #C5CCD6;
-    margin-top: 35px;
-    margin-bottom: 35px;
 }
 
 .main-info-footer-stars
