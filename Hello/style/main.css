@@ -203,7 +203,7 @@ body
     display: inline-block;
     width: 96px;
     height: 15px;
-    background: url(..//images/3star.png) no-repeat;
+    background: url(..//images/5star.png) no-repeat;
 }
 
 .main-info-footer-3stars
@@ -212,7 +212,7 @@ body
     display: inline-block;
     width: 95px;
     height: 15px;
-    background: url(..//images/5star.png) no-repeat;
+    background: url(..//images/3star.png) no-repeat;
 }
 
 .main-abbilites
