@@ -29,11 +29,101 @@ body
 
 .main-layout-middle
 {
-    background: url("../images/middle-line.png") center 0 no-repeat;
     float: left;
     height: 1190px;
     width: 7%;
     margin-top: 30px;
+}
+
+.main-layout-middle-line
+{
+    margin-left: 40px;
+    width: 6px;
+    height: 1140px;
+    background-color: #DBE1E8;
+}
+
+.white-circle
+{
+    border-radius: 50%;
+    height: 20px;
+    width: 20px;
+    background-color: #FFFFFF;
+    position: relative;
+    left: 33px;
+}
+
+.grey-circle
+{
+    border-radius: 50%;
+    height: 20px;
+    width: 20px;
+    background-color: #DBE1E8;
+    position: relative;
+    left: 33px;
+}
+
+.main-layout-middle-circle-1
+{
+    top: -980px;
+}
+
+.main-layout-middle-circle-2
+{
+    top: -900px;
+}
+
+.main-layout-middle-circle-3
+{
+    top: -720px;
+}
+
+.main-layout-middle-circle-4
+{
+    top: -680px;
+}
+
+.main-layout-middle-circle-5
+{
+    top: -560px;
+}
+
+.main-layout-middle-circle-6
+{
+    top: -440px;
+}
+
+.main-layout-middle-circle-7
+{
+    top: -380px;
+}
+
+.main-layout-middle-circle-8
+{
+    top: -280px;
+}
+
+.main-layout-middle-circle-9
+{
+    top: -255px;
+}
+
+.main-layout-middle-date
+{
+    position: relative;
+    background-color: #DBE1E8;
+    width: 65px;
+    height: 35px;
+    margin-left: 12px;
+    top: -180px;
+}
+
+.main-layout-middle-date span
+{
+    display: inline-block;
+    color: white;
+    margin-top: 5px;
+    font-size: 20px;
 }
 
 .main-layout-right
@@ -82,6 +172,7 @@ body
     padding-left: 30px;
     line-height: 35px; 
     color: #33495F;
+    font-size: 16px;
 }
 
 .main-layout-right hr
@@ -197,22 +288,40 @@ body
     height: 13px;
 }
 
-.main-info-footer-5stars
+.main-info-footer-stars
 {
     margin-left: 120px;
     display: inline-block;
     width: 96px;
     height: 15px;
-    background: url(..//images/5star.png) no-repeat;
+
 }
 
-.main-info-footer-3stars
+.main-info-footer-stars-star
 {
-    margin-left: 120px;
     display: inline-block;
-    width: 95px;
+    background: url(../images/fullstar.png);
+    width: 15px;
     height: 15px;
-    background: url(..//images/3star.png) no-repeat;
+    margin-right: 4px;
+}
+
+.main-info-footer-stars-halfstar
+{
+    display: inline-block;
+    background: url(../images/halfstar.png);
+    width: 15px;
+    height: 15px;
+    margin-right: 4px;
+}
+
+.main-info-footer-stars-emptystar
+{
+    display: inline-block;
+    background: url(../images/emptystar.png);
+    width: 15px;
+    height: 15px;
+    margin-right: 4px;
 }
 
 .main-abbilites
@@ -238,7 +347,7 @@ body
     width: 80px;
     height: 80px;
     display: inline-block;
-    margin-left: 19px; 
+    margin-left: 18px; 
 }
 
 .main-abbilites-top-abbility-img
@@ -323,32 +432,34 @@ body
 {
     display: inline-block;
     position: relative;
-    top: 5px;
-    height: 22px;
-    width: 38px;
+    height: 17px;
+    width: 36px;
+    text-align: center;
+    font-size: 10px;
+    border-radius: 10%;
+    padding-top: 2px;
+    color: #F5F6F6;
+    background-color: #34495E;
+    
 }
 
 .main-abbilites-bot-leftside-Photoshop-perc
 {
-    background: url(..//images/80.png) no-repeat center center;
-    left: 115px;
+    left: 120px;
 }
 
 .main-abbilites-bot-leftside-Illustrator-perc
 {
-    background: url(..//images/55.png) no-repeat center center;
     left: 55px;
 }
 
 .main-abbilites-bot-leftside-Wordpress-perc
 {
-    background: url(..//images/95.png) no-repeat center center;
     left: 155px;
 }
 
 .main-abbilites-bot-leftside-Prestashop-perc
 {
-    background: url(..//images/85.png) no-repeat center center;
     left: 125px;
 }
 
@@ -384,29 +495,42 @@ body
 
 .main-abbilites-bot-leftside-Referencement-perc
 {
-    left: 5px;
-    background: url(..//images/60.png) no-repeat center center;
+    left: 10px;
 }
 
 .main-abbilites-bot-leftside-Reseaux-perc
 {
     left: 65px;
-    background: url(..//images/75.png) no-repeat center center;
 }
 
 .main-abbilites-bot-leftside-UI-perc
 {
     left: 70px;
-    background: url(..//images/55.png) no-repeat center center;
 }
 
 .main-abbilites-bot-leftside-User-perc
 {
     left: 50px;
-    background: url(..//images/60.png) no-repeat center center;
 }
 
 .main-abbilites-bot-progressbar
 {
-    margin-top: 10px;
+    margin-top: 7px; 
+    padding-top: 5px;
+    vertical-align: bottom;
+}
+
+.main-abbilites-bot-progressbar span
+{
+    display: inline-block;
+    font-size: 16px;
+}
+
+.main-abbilites-bot-cube
+{
+    margin-left: 14px;
+    background-color: #34495E;
+    height: 7px;
+    width: 7px;
+    transform: rotate(45deg);
 }
