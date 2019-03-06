@@ -33,6 +33,12 @@ canvas {
     font-size: 2em;
 }
 
+#mannascore {
+    float: right;
+    color: white;
+    font-size: 2em;
+}
+
 .key {
     color: #aaffdd;
 }
@@ -68,4 +74,11 @@ canvas {
 
 #game-over button {
     font-size: 1.5em;
+}
+
+.betwenn
+{
+    float: right;
+    width: 30px;
+    height: 30px;
 }
