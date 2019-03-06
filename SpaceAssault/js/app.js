@@ -199,6 +199,15 @@ function updateEntities(dt) {
         }
 
         // Remove the bullet if it goes offscreen
+        /**/
+        if(checkMegalithsCollisionEnemy(bullet))
+        {
+            bullets.splice(i, 1);
+            i--;
+            break;
+        }
+
+
         if(bullet.pos[1] < 0 || bullet.pos[1] > canvas.height ||
            bullet.pos[0] > canvas.width) {
             bullets.splice(i, 1);
@@ -284,6 +293,23 @@ function checkMegalithsCollisionEnemy(enemy)
     return false;
 }
 
+function checkMegalithsCollisionEnemy(bullet)
+{
+    var bulletPos = bullet.pos;
+    var bulletSize = bullet.sprite.size;
+    
+    for(var i = 0; i < megaliths.length; i++)
+    {        
+        var megalithPos = megaliths[i].pos;
+        var megalithSize = megaliths[i].sprite.size;
+
+        if(boxCollides(bulletPos, bulletSize, megalithPos, megalithSize))
+        {
+            return true;
+        }
+    }
+    return false;
+}
 
 function collides(x, y, r, b, x2, y2, r2, b2) {
     return !(r <= x2 || x > r2 ||
