@@ -78,7 +78,7 @@ var enemySpeed = 100;
 
 //add Megaliths
 
-(function addMegaliths()
+function addMegaliths()
 {
     for(var i = 0; i < Math.random() * 2 + 2; i++)
     {
@@ -100,7 +100,7 @@ var enemySpeed = 100;
             }
         );
     }
-}());
+};
 
 
 // Update game objects
@@ -430,6 +430,9 @@ function reset() {
 
     enemies = [];
     bullets = [];
+    megaliths = [];
+
+    addMegaliths();
 
     player.pos = [50, canvas.height / 2];
 };
