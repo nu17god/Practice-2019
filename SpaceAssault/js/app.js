@@ -86,21 +86,37 @@ function addMegaliths()
 {
     for(var i = 0; i < Math.random() * 2 + 2; i++)
     {
+        var newPos = [90 + Math.random() * (canvas.width - 140), Math.random() * (canvas.height - 100)];
+        var size = [60,60];
+
+        while(checkObjectsCollision(newPos,size,megaliths))
+        {
+            newPos = [90 + Math.random() * (canvas.width - 140), Math.random() * (canvas.height - 100)];
+        }
+
         megaliths.push
         (
             {
-                pos: [90 + Math.random() * (canvas.width - 140), Math.random() * (canvas.height - 100)],
-                sprite: new Sprite('img/sprites.png' , [0, 210], [60,60])
+                pos: newPos,
+                sprite: new Sprite('img/sprites.png' , [0, 210], size)
             }
         );
     }
     for(var i = 0; i < Math.random() * 2 + 2; i++)
     {
+        var newPos = [90 + Math.random() * (canvas.width - 140), Math.random() * (canvas.height - 100)];
+        var size = [60,60];
+
+        while(checkObjectsCollision(newPos,size,megaliths))
+        {
+            newPos = [90 + Math.random() * (canvas.width - 140), Math.random() * (canvas.height - 100)];
+        }
+
         megaliths.push
         (
             {
-                pos: [90 + Math.random() * (canvas.width - 140), Math.random() * (canvas.height - 100)],
-                sprite: new Sprite('img/sprites.png' , [0, 270], [60,60])
+                pos: newPos,
+                sprite: new Sprite('img/sprites.png' , [0, 270], size)
             }
         );
     }
@@ -110,11 +126,18 @@ function addManna()
 {
     for(var i = 0; i < Math.random() * 8 + 4; i++)
     {
+        var newPos = [90 + Math.random() * (canvas.width - 140), Math.random() * (canvas.height - 100)];
+        var size = [55,55];
+
+        while(checkObjectsCollision(newPos,size,manna) || checkObjectsCollision(newPos,size,megaliths))
+        {   
+            newPos = [90 + Math.random() * (canvas.width - 140), Math.random() * (canvas.height - 100)];    
+        }
         manna.push
         (
             {
-                pos: [90 + Math.random() * (canvas.width - 140), Math.random() * (canvas.height - 50)],
-                sprite: new Sprite('img/sprites.png' , [0, 160], [55,55], 2, [0, 1])
+                pos: newPos,
+                sprite: new Sprite('img/sprites.png' , [0, 160], size, 2, [0, 1])
             }
         );
     }
@@ -292,6 +315,22 @@ function updateEntities(dt) {
 }
 
 // Collisions
+
+function checkObjectsCollision(pos,size,objects)
+{
+    for(var i = 0; i < objects.length; i++)
+    {
+        var objectsPos = objects[i].pos;
+        var objectsSize = objects[i].sprite.size;
+
+        if(boxCollides(pos, size, objectsPos,objectsSize))
+        {
+            return true;
+        }
+    }
+
+    return false;
+}
 
 function checkMegalithsCollisionPlayer()
 {
@@ -502,8 +541,8 @@ function reset() {
     megaliths = [];
     manna = [];
 
-    addManna();
     addMegaliths();
+    addManna();
 
     player.pos = [50, canvas.height / 2];
 };
