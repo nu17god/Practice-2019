@@ -9,12 +9,10 @@ namespace Model.Entities
     public class MovableObject: Object
     {
         public Direction Dir;
-        public int Speed;
 
-        public MovableObject(int x, int y, int speed, int height, int width, Direction direction) : base (x, y, width, height)
+        public MovableObject( Position position, Direction direction, int size) :  base (position,size) 
         {
             Dir = direction;
-            Speed = speed;
         }
     }
 }

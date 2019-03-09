@@ -8,17 +8,14 @@ namespace Model.Entities
 {
     public class Object
     {
-        public int X { get; set; }
-        public int Y { get; set; }
-        public int Width { get; set; }
-        public int Height { get; set; }
+        public int size = 64;
+        public Position position = new Position(0,0);
 
-        public Object(int x, int y, int width, int height)
+
+        public Object(Position position, int size)
         {
-            X = x;
-            Y = y;
-            Width = width;
-            Height = height;
+            this.position = position;
+            this.size = size;
         }
     }
 }

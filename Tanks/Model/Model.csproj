@@ -33,6 +33,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -41,9 +42,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="EntitiesList.cs" />
+    <Compile Include="Entities\Apple.cs" />
     <Compile Include="Entities\Direction.cs" />
+    <Compile Include="Entities\ObjectCollision.cs" />
+    <Compile Include="Entities\Wall.cs" />
+    <Compile Include="InitializeGame.cs" />
     <Compile Include="Entities\MovableObject.cs" />
     <Compile Include="Entities\Object.cs" />
+    <Compile Include="Entities\ObjectView.cs" />
+    <Compile Include="Entities\Player.cs" />
+    <Compile Include="Entities\Position.cs" />
+    <Compile Include="TanksModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
