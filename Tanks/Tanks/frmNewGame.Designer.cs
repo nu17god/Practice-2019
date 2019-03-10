@@ -122,7 +122,7 @@
             this.ctlSpeed.Name = "ctlSpeed";
             this.ctlSpeed.Size = new System.Drawing.Size(75, 45);
             this.ctlSpeed.TabIndex = 5;
-            this.ctlSpeed.Value = 1;
+            this.ctlSpeed.Value = 3;
             // 
             // lblSpeed
             // 
@@ -160,22 +160,22 @@
             // btnSize2
             // 
             this.btnSize2.AutoSize = true;
+            this.btnSize2.Checked = true;
             this.btnSize2.Location = new System.Drawing.Point(11, 55);
             this.btnSize2.Name = "btnSize2";
             this.btnSize2.Size = new System.Drawing.Size(78, 24);
             this.btnSize2.TabIndex = 1;
+            this.btnSize2.TabStop = true;
             this.btnSize2.Text = "20 x 20";
             this.btnSize2.UseVisualStyleBackColor = true;
             // 
             // btnSize1
             // 
             this.btnSize1.AutoSize = true;
-            this.btnSize1.Checked = true;
             this.btnSize1.Location = new System.Drawing.Point(11, 25);
             this.btnSize1.Name = "btnSize1";
             this.btnSize1.Size = new System.Drawing.Size(78, 24);
             this.btnSize1.TabIndex = 0;
-            this.btnSize1.TabStop = true;
             this.btnSize1.Text = "10 x 10";
             this.btnSize1.UseVisualStyleBackColor = true;
             // 

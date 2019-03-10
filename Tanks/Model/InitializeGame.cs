@@ -18,13 +18,13 @@ namespace Model.Entities
             this.entities = entities;
         }
 
-        public void Initialize(int MapSize, int AppleCount)
+        public void Initialize(int MapSize, int AppleCount, int enemiesCount)
         {
             this.MapSize = MapSize;
             InitializeWalls();
             InitializeApples(AppleCount);
             InitializePlayer();
-            //InitializeEnemies();
+            InitializeEnemies(enemiesCount);
         }
 
         public void InitializeApples(int AppleCount)
@@ -85,6 +85,42 @@ namespace Model.Entities
                 entities.walls.Add(new Wall(new Position(i, 640 - (MapSize * 4)), MapSize));
                 entities.walls.Add(new Wall(new Position(640 / 2, i), MapSize));
                 entities.walls.Add(new Wall(new Position(640 / 2 - MapSize, i), MapSize));
+            }
+        }
+
+        public void InitializeEnemies(int enemiesCount)
+        {
+            Position position = new Position(random.Next(640 - MapSize * 2), (random.Next(640 - MapSize * 2)));
+            Direction direction = Direction.DOWN;
+
+            int count = entities.enemies.Count;
+            for (int i = count; i < enemiesCount; i++)
+            {
+                for (int k = 0; k < i; k++)
+                {
+                    if (collision.BoxCollides(position, MapSize, entities.enemies[k].position))
+                    {
+                        i = count - 1;
+                        position = new Position(random.Next(640 - MapSize * 2), (random.Next(640 - MapSize * 2)));
+                    }
+                }
+
+                for (int j = 0; j < entities.walls.Count; j++)
+                {
+                    if (collision.BoxCollides(position, MapSize, entities.walls[j].position))
+                    {
+                        i = count - 1;
+                        position = new Position(random.Next(640 - MapSize * 2), (random.Next(640 - MapSize * 2)));
+                    }
+                }
+
+                if (i > count - 1)
+                {
+
+                    entities.enemies.Add(new Enemy(position, direction, MapSize));
+                    position = new Position(random.Next(640 - MapSize * 2), (random.Next(640 - MapSize * 2)));
+                    count++;
+                }
             }
         }
     }

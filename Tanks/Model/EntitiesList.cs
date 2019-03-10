@@ -12,5 +12,8 @@ namespace Model
         public Player player { get; set;}
         public List<Wall> walls = new List<Wall>();
         public List<Apple> apples = new List<Apple>();
+        public List<Enemy> enemies = new List<Enemy>();
+        public List<Bullet> bullets = new List<Bullet>();
+        public List<Bullet> playerBullet = new List<Bullet>();
     }
 }

@@ -13,10 +13,10 @@ namespace Model.Entities
 
         public Player(Position position, Direction direction, int size) : base(position, direction, size)
         {
-            ChangeDirection(direction, position);
+            ChangeDirection(direction);
         }
 
-        public void ChangeDirection(Direction direction, Position position)
+        public void ChangeDirection(Direction direction)
         {
             this.Dir = direction;
             switch (direction)
@@ -39,6 +39,12 @@ namespace Model.Entities
         public void Draw(Graphics graphics)
         {
             objectView.Draw(graphics, position.X, position.Y);
+        }
+
+        public EntitiesList Shoot(EntitiesList entities)
+        {
+            entities.playerBullet.Add(new Bullet(new Position(position.X + ((size / 2) - (size / 8)), position.Y + ((size / 2) - (size / 8))), Dir, size / 4));
+            return entities;
         }
     }
 }

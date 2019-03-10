@@ -15,21 +15,29 @@ namespace Tanks
     public partial class frmTanks : Form
     {
         int MapSize = 32;
-        int Speed = 5;
+        int Speed = 3;
         int AppleCount = 5;
         int EnemiesCount = 5;
+        int Score;
+        bool GameOver;
+        int cooldown;
+
         EntitiesList entities;
         TanksModel tanksModel;
         TanksControl tanksControl;
+        frmReport reportForm;
 
         public frmTanks()
         {
             InitializeComponent();
             entities = new EntitiesList();
-            tanksModel = new TanksModel(entities, Speed, MapSize, AppleCount);
+            tanksModel = new TanksModel(entities, Speed, MapSize);
             tanksControl = new TanksControl(tanksModel);
             tanksControl.NewGame(MapSize, Speed, AppleCount, EnemiesCount);
             ctlTime.Enabled = true;
+            GameOver = false;
+            Score = 0;
+            cooldown = 0;
             DrawTanks();
         }
 
@@ -39,16 +47,46 @@ namespace Tanks
             Graphics graphics = Graphics.FromImage(bitmap);
 
             graphics.FillRectangle(new SolidBrush(Color.Black), new Rectangle(0, 0, 640, 640));
-            entities.player.Draw(graphics);
+            this.lblScoreValue.Text = Score.ToString();
 
-            for (int i = 0; i < entities.walls.Count;i++)
+            if (!GameOver)
             {
-                entities.walls[i].Draw(graphics);
+                lblScoretxt.Enabled = true;
+                lblScoreValue.Enabled = true;
+
+                entities.player.Draw(graphics);
+
+                for (int i = 0; i < entities.bullets.Count; i++)
+                {
+                    entities.bullets[i].Draw(graphics);
+                }
+
+                for (int i = 0; i < entities.playerBullet.Count; i++)
+                {
+                    entities.playerBullet[i].Draw(graphics);
+                }
+
+                for (int i = 0; i < entities.walls.Count; i++)
+                {
+                    entities.walls[i].Draw(graphics);
+                }
+
+                for (int i = 0; i < entities.enemies.Count; i++)
+                {
+                    entities.enemies[i].Draw(graphics);
+                }
+
+                for (int i = 0; i < entities.apples.Count; i++)
+                {
+                    entities.apples[i].Draw(graphics);
+                }
+
             }
 
-            for (int i = 0; i < entities.apples.Count; i++)
+            else
             {
-                entities.apples[i].Draw(graphics);
+                lblScoretxt.Enabled = false;
+                lblScoreValue.Enabled = false;
             }
 
             ctlMap.Image = bitmap;
@@ -56,11 +94,70 @@ namespace Tanks
 
         private void newGameToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            NewGame();
+        }
+
+        private void ctlTime_Tick(object sender, EventArgs e)
+        {
+            cooldown--;
+
+            if(tanksControl.Update(ref Score))
+            {
+                GameOver = true;
+                ctlTime.Enabled = false;
+                DrawTanks();
+                frmGameOver gameOver = new frmGameOver(Score);
+
+                gameOver.ShowDialog(this);
+
+                if(gameOver.DialogResult == DialogResult.OK)
+                {
+                    NewGame();
+                }
+                else if(gameOver.DialogResult == DialogResult.Abort)
+                {
+                    this.Close();
+                }
+            }
+            DrawTanks();
+
+            if (!(reportForm == null || reportForm.IsDisposed == true))
+            {
+                reportForm.Update(entities);
+            }
+        }
+
+        private void frmTanks_KeyDown(object sender, KeyEventArgs e)
+        {
+            tanksControl.ReadKey(e.KeyCode);
+
+            if(e.KeyCode == Keys.Space)
+            {
+                if(cooldown < 0)
+                {
+                    tanksControl.ReadShoot();
+                    cooldown = 64;
+                }
+            }
+        }
+
+        private void reportToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if(reportForm == null || reportForm.IsDisposed == true)
+            {
+                reportForm = new frmReport(entities, this.Location);
+            }
+
+            reportForm.Show();
+        }
+
+        private void NewGame()
+        {
             frmNewGame newGameForm = new frmNewGame();
 
             newGameForm.ShowDialog(this);
 
-            if(newGameForm.DialogResult == DialogResult.OK)
+            if (newGameForm.DialogResult == DialogResult.OK)
             {
                 MapSize = newGameForm.MapSize;
                 Speed = newGameForm.Speed;
@@ -83,20 +180,13 @@ namespace Tanks
                 }
 
                 tanksControl.NewGame(MapSize, Speed, AppleCount, EnemiesCount);
-
+                GameOver = false;
+                Score = 0;
+                ctlTime.Enabled = true;
+                cooldown = 0;
+                reportForm = new frmReport(entities, this.Location);
                 DrawTanks();
             }
-        }
-
-        private void ctlTime_Tick(object sender, EventArgs e)
-        {
-            tanksControl.Update();
-            DrawTanks();
-        }
-
-        private void frmTanks_KeyDown(object sender, KeyEventArgs e)
-        {
-            tanksControl.ReadKey(e.KeyCode);
         }
     }
 }

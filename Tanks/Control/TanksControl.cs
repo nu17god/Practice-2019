@@ -35,8 +35,14 @@ namespace Control
                 case Keys.S:
                     tanksModel.ChangePlayerDirection(Direction.DOWN);
                     break;
+
             }
 
+        }
+
+        public void ReadShoot()
+        {
+            tanksModel.Shoot();
         }
 
         public void NewGame(int MapSize, int Speed, int AppleCount, int EnemiesCount)
@@ -44,9 +50,9 @@ namespace Control
             tanksModel.NewGame(MapSize, Speed, AppleCount, EnemiesCount);
         }
 
-        public void Update()
+        public bool Update(ref int Score)
         {
-            tanksModel.Update();
+            return tanksModel.Update(ref Score);
         }
     }
 }
