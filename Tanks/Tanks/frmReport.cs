@@ -40,6 +40,28 @@ namespace Tanks
             }
         }
 
+        public void CreateGrid(EntitiesList entities)
+        {
+            ctlData.Rows.Add(entities.walls.Count - 1);
+
+            ctlData.Rows[0].Cells[0].Value = entities.player.position.ToString();
+
+            for (int i = 0; i < entities.apples.Count; i++)
+            {
+                ctlData.Rows[i].Cells[2].Value = entities.apples[i].position.ToString();
+            }
+
+            for (int i = 0; i < entities.walls.Count; i++)
+            {
+                ctlData.Rows[i].Cells[3].Value = entities.walls[i].position.ToString();
+            }
+
+            for (int i = 0; i < entities.enemies.Count; i++)
+            {
+                ctlData.Rows[i].Cells[1].Value = entities.enemies[i].position.ToString();
+            }
+        }
+
         public void Update(EntitiesList entities)
         {
             if (!ctlData.Rows[0].Cells[0].Value.Equals(entities.player.position.ToString()))

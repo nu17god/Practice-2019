@@ -183,9 +183,9 @@ namespace Tanks
                 GameOver = false;
                 Score = 0;
                 ctlTime.Enabled = true;
-                cooldown = 0;
-                reportForm = new frmReport(entities, this.Location);
+                cooldown = 0;               
                 DrawTanks();
+                reportForm.CreateGrid(entities);
             }
         }
     }

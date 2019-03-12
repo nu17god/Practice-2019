@@ -73,7 +73,7 @@ namespace Model.Entities
             if(cooldown == 0)
             {
                 entities.bullets.Add(new Bullet(new Position(position.X + ((size / 2) - (size / 8)), position.Y + ((size / 2) - (size / 8))), Dir, size / 4));
-                cooldown = 32;
+                cooldown = 5;
             }
             cooldown--;
             return entities;
