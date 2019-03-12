@@ -20,28 +20,16 @@ namespace Tanks
 
             InitializeComponent();
 
-            ctlData.Rows.Add(entities.walls.Count - 1);
-
-            ctlData.Rows[0].Cells[0].Value = entities.player.position.ToString();
-
-            for (int i = 0; i < entities.apples.Count; i++)
-            {
-                ctlData.Rows[i].Cells[2].Value = entities.apples[i].position.ToString();
-            }
-
-            for (int i = 0; i < entities.walls.Count; i++)
-            {
-                ctlData.Rows[i].Cells[3].Value = entities.walls[i].position.ToString();
-            }
-
-            for (int i = 0; i < entities.enemies.Count; i++)
-            {
-                ctlData.Rows[i].Cells[1].Value = entities.enemies[i].position.ToString();
-            }
+            CreateGrid(entities);
         }
 
         public void CreateGrid(EntitiesList entities)
         {
+            ctlData.Columns.Add("FirstCollumn","Player");
+            ctlData.Columns.Add("SecondCollumn", "Enemies");
+            ctlData.Columns.Add("ThirdCollumn", "Apples");
+            ctlData.Columns.Add("FourthCollumn", "Walls");
+
             ctlData.Rows.Add(entities.walls.Count - 1);
 
             ctlData.Rows[0].Cells[0].Value = entities.player.position.ToString();

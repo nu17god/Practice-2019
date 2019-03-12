@@ -56,16 +56,6 @@ namespace Tanks
 
                 entities.player.Draw(graphics);
 
-                for (int i = 0; i < entities.bullets.Count; i++)
-                {
-                    entities.bullets[i].Draw(graphics);
-                }
-
-                for (int i = 0; i < entities.playerBullet.Count; i++)
-                {
-                    entities.playerBullet[i].Draw(graphics);
-                }
-
                 for (int i = 0; i < entities.walls.Count; i++)
                 {
                     entities.walls[i].Draw(graphics);
@@ -79,6 +69,16 @@ namespace Tanks
                 for (int i = 0; i < entities.apples.Count; i++)
                 {
                     entities.apples[i].Draw(graphics);
+                }
+
+                for (int i = 0; i < entities.bullets.Count; i++)
+                {
+                    entities.bullets[i].Draw(graphics);
+                }
+
+                for (int i = 0; i < entities.playerBullet.Count; i++)
+                {
+                    entities.playerBullet[i].Draw(graphics);
                 }
 
             }
@@ -185,7 +185,11 @@ namespace Tanks
                 ctlTime.Enabled = true;
                 cooldown = 0;               
                 DrawTanks();
-                reportForm.CreateGrid(entities);
+
+                if (reportForm != null)
+                {
+                    reportForm.CreateGrid(entities);
+                }
             }
         }
     }
