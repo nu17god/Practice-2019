@@ -37,6 +37,9 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.lblScoreValue = new System.Windows.Forms.Label();
             this.lblScoretxt = new System.Windows.Forms.Label();
+            this.lblReload = new System.Windows.Forms.Label();
+            this.lblReloadValue = new System.Windows.Forms.Label();
+            this.lblPause = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ctlMap)).BeginInit();
             this.panel1.SuspendLayout();
@@ -83,6 +86,9 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.InfoText;
+            this.panel1.Controls.Add(this.lblPause);
+            this.panel1.Controls.Add(this.lblReloadValue);
+            this.panel1.Controls.Add(this.lblReload);
             this.panel1.Controls.Add(this.lblScoreValue);
             this.panel1.Controls.Add(this.lblScoretxt);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
@@ -112,6 +118,39 @@
             this.lblScoretxt.Size = new System.Drawing.Size(63, 20);
             this.lblScoretxt.TabIndex = 0;
             this.lblScoretxt.Text = "Score : ";
+            // 
+            // lblReload
+            // 
+            this.lblReload.AutoSize = true;
+            this.lblReload.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lblReload.ForeColor = System.Drawing.Color.White;
+            this.lblReload.Location = new System.Drawing.Point(480, 4);
+            this.lblReload.Name = "lblReload";
+            this.lblReload.Size = new System.Drawing.Size(68, 20);
+            this.lblReload.TabIndex = 2;
+            this.lblReload.Text = "Reload :";
+            // 
+            // lblReloadValue
+            // 
+            this.lblReloadValue.AutoSize = true;
+            this.lblReloadValue.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lblReloadValue.ForeColor = System.Drawing.Color.Green;
+            this.lblReloadValue.Location = new System.Drawing.Point(554, 4);
+            this.lblReloadValue.Name = "lblReloadValue";
+            this.lblReloadValue.Size = new System.Drawing.Size(55, 20);
+            this.lblReloadValue.TabIndex = 3;
+            this.lblReloadValue.Text = "Ready";
+            // 
+            // lblPause
+            // 
+            this.lblPause.AutoSize = true;
+            this.lblPause.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lblPause.ForeColor = System.Drawing.Color.White;
+            this.lblPause.Location = new System.Drawing.Point(3, 4);
+            this.lblPause.Name = "lblPause";
+            this.lblPause.Size = new System.Drawing.Size(212, 20);
+            this.lblPause.TabIndex = 4;
+            this.lblPause.Text = "Press \"P\" to pause the game";
             // 
             // frmTanks
             // 
@@ -153,6 +192,9 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label lblScoreValue;
         private System.Windows.Forms.Label lblScoretxt;
+        private System.Windows.Forms.Label lblPause;
+        private System.Windows.Forms.Label lblReloadValue;
+        private System.Windows.Forms.Label lblReload;
     }
 }
 

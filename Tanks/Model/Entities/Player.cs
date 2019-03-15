@@ -10,6 +10,7 @@ namespace Model.Entities
     public class Player : MovableObject
     {
         ObjectView objectView;
+        public int Cooldown = 16;
 
         public Player(Position position, Direction direction, int size) : base(position, direction, size)
         {
@@ -41,10 +42,15 @@ namespace Model.Entities
             objectView.Draw(graphics, position.X, position.Y);
         }
 
-        public EntitiesList Shoot(EntitiesList entities)
+        public bool Shoot()
         {
-            entities.playerBullet.Add(new Bullet(new Position(position.X + ((size / 2) - (size / 8)), position.Y + ((size / 2) - (size / 8))), Dir, size / 4));
-            return entities;
+            if(Cooldown > 16)
+            {
+                Cooldown = 0;
+                return true;
+            }
+
+            return false;
         }
     }
 }

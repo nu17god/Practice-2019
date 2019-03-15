@@ -20,12 +20,7 @@ namespace Tanks
 
             InitializeComponent();
 
-            CreateGrid(entities);
-        }
-
-        public void CreateGrid(EntitiesList entities)
-        {
-            ctlData.Columns.Add("FirstCollumn","Player");
+            ctlData.Columns.Add("FirstCollumn", "Player");
             ctlData.Columns.Add("SecondCollumn", "Enemies");
             ctlData.Columns.Add("ThirdCollumn", "Apples");
             ctlData.Columns.Add("FourthCollumn", "Walls");

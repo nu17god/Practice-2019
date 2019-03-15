@@ -123,53 +123,73 @@ namespace Model.Entities
                 {
                     case Direction.LEFT:
                         {
-                            if ((Collides(entities.enemies[i].position.X - MapSize, entities.enemies[i].position.Y,
-                                          entities.enemies[i].position.X - MapSize + entities.enemies[i].size,
+                            if ((Collides(0,
+                                          entities.enemies[i].position.Y,
+                                          entities.enemies[i].position.X, 
                                           entities.enemies[i].position.Y + entities.enemies[i].size,
-                                          entities.player.position.X, entities.player.position.Y,
+                                          entities.player.position.X, 
+                                          entities.player.position.Y,
                                           entities.player.position.X + entities.player.size,
                                           entities.player.position.Y + entities.player.size)))
                             {
-                                entities = entities.enemies[i].Shoot(entities);
+                                if (entities.enemies[i].Shoot())
+                                {
+                                    entities.bullets.Add(CreateBullet(entities.enemies[i]));
+                                }
                             }
                             break;
                         }
                     case Direction.RIGHT:
                         {
-                            if ((Collides(entities.enemies[i].position.X + MapSize, entities.enemies[i].position.Y,
-                                          entities.enemies[i].position.X + MapSize + entities.enemies[i].size,
+                            if ((Collides(entities.enemies[i].position.X + entities.enemies[i].size, 
+                                          entities.enemies[i].position.Y,
+                                          entities.enemies[i].position.X + 640,
                                           entities.enemies[i].position.Y + entities.enemies[i].size,
-                                          entities.player.position.X, entities.player.position.Y,
+                                          entities.player.position.X, 
+                                          entities.player.position.Y,
                                           entities.player.position.X + entities.player.size,
                                           entities.player.position.Y + entities.player.size)))
                             {
-                                entities = entities.enemies[i].Shoot(entities);
+                                if (entities.enemies[i].Shoot())
+                                {
+                                    entities.bullets.Add(CreateBullet(entities.enemies[i]));
+                                }
                             }
                             break;
                         }
                     case Direction.UP:
                         {
-                            if ((Collides(entities.enemies[i].position.X, entities.enemies[i].position.Y - MapSize,
+                            if ((Collides(entities.enemies[i].position.X,
+                                          0,
                                           entities.enemies[i].position.X + entities.enemies[i].size,
-                                          entities.enemies[i].position.Y - MapSize + entities.enemies[i].size,
-                                          entities.player.position.X, entities.player.position.Y,
+                                          entities.enemies[i].position.Y,
+                                          entities.player.position.X,
+                                          entities.player.position.Y,
                                           entities.player.position.X + entities.player.size,
                                           entities.player.position.Y + entities.player.size)))
                             {
-                                entities = entities.enemies[i].Shoot(entities);
+                                if (entities.enemies[i].Shoot())
+                                {
+                                    entities.bullets.Add(CreateBullet(entities.enemies[i]));
+                                }
                             }
                             break;
                         }
                     case Direction.DOWN:
                         {
-                            if ((Collides(entities.enemies[i].position.X, entities.enemies[i].position.Y + MapSize,
+                            if ((Collides(entities.enemies[i].position.X + entities.enemies[i].size,
+                                          entities.enemies[i].position.Y,
                                           entities.enemies[i].position.X + entities.enemies[i].size,
-                                          entities.enemies[i].position.Y - MapSize + entities.enemies[i].size,
-                                          entities.player.position.X, entities.player.position.Y,
+                                          entities.enemies[i].position.Y + 640,
+                                          entities.player.position.X,
+                                          entities.player.position.Y,
                                           entities.player.position.X + entities.player.size,
                                           entities.player.position.Y + entities.player.size)))
                             {
-                                entities = entities.enemies[i].Shoot(entities);
+                                if (entities.enemies[i].Shoot())
+                                {
+                                    entities.bullets.Add(CreateBullet(entities.enemies[i]));
+                                }
                             }
                             break;
                         }
@@ -287,6 +307,11 @@ namespace Model.Entities
             }
 
             return entities;
+        }
+
+        private Bullet CreateBullet(Enemy enemy)
+        {
+            return new Bullet(new Position(enemy.position.X + ((enemy.size / 2) - (enemy.size / 8)), enemy.position.Y + ((enemy.size / 2) - (enemy.size / 8))), enemy.Dir, enemy.size / 4);
         }
     }
 }

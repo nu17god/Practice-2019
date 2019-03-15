@@ -9,19 +9,17 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Model;
 using Control;
+using Model.Entities;
 
 namespace Tanks
 {
     public partial class frmTanks : Form
     {
-        int MapSize = 32;
-        int Speed = 3;
-        int AppleCount = 5;
-        int EnemiesCount = 5;
+
         int Score;
         bool GameOver;
-        int cooldown;
 
+        StartInfo startInfo = new StartInfo();
         EntitiesList entities;
         TanksModel tanksModel;
         TanksControl tanksControl;
@@ -31,13 +29,12 @@ namespace Tanks
         {
             InitializeComponent();
             entities = new EntitiesList();
-            tanksModel = new TanksModel(entities, Speed, MapSize);
+            tanksModel = new TanksModel(entities, startInfo);
             tanksControl = new TanksControl(tanksModel);
-            tanksControl.NewGame(MapSize, Speed, AppleCount, EnemiesCount);
+            tanksControl.NewGame(startInfo);
             ctlTime.Enabled = true;
             GameOver = false;
             Score = 0;
-            cooldown = 0;
             DrawTanks();
         }
 
@@ -53,17 +50,10 @@ namespace Tanks
             {
                 lblScoretxt.Enabled = true;
                 lblScoreValue.Enabled = true;
-
-                entities.player.Draw(graphics);
-
+                
                 for (int i = 0; i < entities.walls.Count; i++)
                 {
                     entities.walls[i].Draw(graphics);
-                }
-
-                for (int i = 0; i < entities.enemies.Count; i++)
-                {
-                    entities.enemies[i].Draw(graphics);
                 }
 
                 for (int i = 0; i < entities.apples.Count; i++)
@@ -80,6 +70,13 @@ namespace Tanks
                 {
                     entities.playerBullet[i].Draw(graphics);
                 }
+
+                for (int i = 0; i < entities.enemies.Count; i++)
+                {
+                    entities.enemies[i].Draw(graphics);
+                }
+
+                entities.player.Draw(graphics);
 
             }
 
@@ -99,7 +96,6 @@ namespace Tanks
 
         private void ctlTime_Tick(object sender, EventArgs e)
         {
-            cooldown--;
 
             if(tanksControl.Update(ref Score))
             {
@@ -121,7 +117,18 @@ namespace Tanks
             }
             DrawTanks();
 
-            if (!(reportForm == null || reportForm.IsDisposed == true))
+            if(entities.player.Cooldown >= 16)
+            {
+                lblReloadValue.Text = "Ready";
+                lblReloadValue.ForeColor = Color.Green;
+            }
+            else
+            {
+                lblReloadValue.Text = "Reloading";
+                lblReloadValue.ForeColor = Color.Red;
+            }
+
+            if (reportForm != null && !reportForm.IsDisposed && reportForm.Visible)
             {
                 reportForm.Update(entities);
             }
@@ -129,68 +136,60 @@ namespace Tanks
 
         private void frmTanks_KeyDown(object sender, KeyEventArgs e)
         {
-            tanksControl.ReadKey(e.KeyCode);
-
-            if(e.KeyCode == Keys.Space)
+            if(e.KeyCode == Keys.P)
             {
-                if(cooldown < 0)
+                if (ctlTime.Enabled == true)
                 {
-                    tanksControl.ReadShoot();
-                    cooldown = 64;
+                    lblPause.Text = "Press \"P\" to unpause the game";
+                    ctlTime.Enabled = false;
                 }
+                else               
+                {
+                    ctlTime.Enabled = true;
+                    lblPause.Text = "Press \"P\" to pause the game";
+                }
+            }
+
+            tanksControl.ReadKey(e.KeyCode);
+        }
+
+        private void NewGame()
+        {
+            ctlTime.Enabled = false;
+            frmNewGame newGameForm = new frmNewGame();
+            newGameForm.ShowDialog(this);
+
+            if (newGameForm.DialogResult == DialogResult.OK)
+            {
+                startInfo = newGameForm.startInfo;
+
+                tanksControl.NewGame(startInfo);
+                GameOver = false;
+                Score = 0;
+                ctlTime.Enabled = true;
+                DrawTanks();
+
+                if (reportForm != null && !reportForm.IsDisposed && reportForm.Visible)
+                {
+                    reportForm.Close();
+                }
+
+                reportForm = null;
+            }
+            else if (newGameForm.DialogResult == DialogResult.Cancel)
+            {
+                ctlTime.Enabled = true ;
             }
         }
 
         private void reportToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if(reportForm == null || reportForm.IsDisposed == true)
+            if (reportForm == null || !reportForm.IsDisposed || !reportForm.Visible)
             {
                 reportForm = new frmReport(entities, this.Location);
             }
 
             reportForm.Show();
-        }
-
-        private void NewGame()
-        {
-            frmNewGame newGameForm = new frmNewGame();
-
-            newGameForm.ShowDialog(this);
-
-            if (newGameForm.DialogResult == DialogResult.OK)
-            {
-                MapSize = newGameForm.MapSize;
-                Speed = newGameForm.Speed;
-                AppleCount = newGameForm.AppleCount;
-                EnemiesCount = newGameForm.TanksCount;
-
-                switch (MapSize)
-                {
-                    case 64:
-                        this.MapSize = 64;
-                        break;
-
-                    case 32:
-                        this.MapSize = 32;
-                        break;
-
-                    case 16:
-                        this.MapSize = 16;
-                        break;
-                }
-
-                tanksControl.NewGame(MapSize, Speed, AppleCount, EnemiesCount);
-                GameOver = false;
-                Score = 0;
-                ctlTime.Enabled = true;
-                cooldown = 0;               
-                DrawTanks();
-
-                if (reportForm != null)
-                {
-                    reportForm.CreateGrid(entities);
-                }
-            }
         }
     }
 }

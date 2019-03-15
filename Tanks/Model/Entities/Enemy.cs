@@ -11,12 +11,12 @@ namespace Model.Entities
     {
         ObjectView objectView;
 
-        int cooldown;
+        public int cooldown;
 
         public Enemy(Position position, Direction direction, int size) : base (position, direction, size)
         {
             ChangeDirection(direction);
-            cooldown = 0;
+            cooldown = 32;
         }
 
         public void ChangeDirection(Direction direction)
@@ -68,15 +68,14 @@ namespace Model.Entities
             objectView.Draw(graphics, position.X, position.Y);
         }
 
-        public EntitiesList Shoot(EntitiesList entities)
+        public bool Shoot()
         {
-            if(cooldown == 0)
+            if(cooldown >= 32)
             {
-                entities.bullets.Add(new Bullet(new Position(position.X + ((size / 2) - (size / 8)), position.Y + ((size / 2) - (size / 8))), Dir, size / 4));
-                cooldown = 5;
+                cooldown = 0;
+                return true;
             }
-            cooldown--;
-            return entities;
+            return false;
         }
     }
 }

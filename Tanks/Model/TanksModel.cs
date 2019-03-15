@@ -15,24 +15,26 @@ namespace Model
         public InitializeGame initializeGame;
 
         public int Speed;
-        public int MapSize;
+        public int ObjectSize;
         public int AppleCount;
         public int EnemiesCount;
 
-        public TanksModel(EntitiesList entities, int speed, int mapSize)
+        public TanksModel(EntitiesList entities, StartInfo startInfo)
         {
-            MapSize = mapSize;
-            Speed = speed;
+            this.Speed = startInfo.Speed;
+            this.ObjectSize = startInfo.ObjectsSize;
+            this.AppleCount = startInfo.AppleCount;
+            this.EnemiesCount = startInfo.EnemyCount;
             this.entities = entities;
         }
 
-        public void NewGame(int MapSize, int Speed, int AppleCount, int EnemiesCount)
+        public void NewGame(StartInfo startInfo)
         {
-            this.Speed = Speed;
-            this.MapSize = MapSize;
-            this.AppleCount = AppleCount;
-            this.EnemiesCount = EnemiesCount;
-            
+            this.Speed = startInfo.Speed;
+            this.ObjectSize = startInfo.ObjectsSize;
+            this.AppleCount = startInfo.AppleCount;
+            this.EnemiesCount = startInfo.EnemyCount;
+
             entities.apples = new List<Apple>();
             entities.walls = new List<Wall>();
             entities.enemies = new List<Enemy>();
@@ -41,12 +43,12 @@ namespace Model
 
             initializeGame = new InitializeGame(entities);
 
-            initializeGame.Initialize(MapSize, AppleCount, EnemiesCount);
+            initializeGame.Initialize(ObjectSize, AppleCount, EnemiesCount);
         }
 
         public bool Update(ref int Score)
         {
-            if(entities.apples.Count < AppleCount)
+            if (entities.apples.Count < AppleCount)
             {
                 initializeGame.InitializeApples(AppleCount);
             }
@@ -56,11 +58,18 @@ namespace Model
                 initializeGame.InitializeEnemies(EnemiesCount);
             }
 
+            foreach (var enemy in entities.enemies)
+            {
+                enemy.cooldown++;
+            }
+
+            entities.player.Cooldown++;
+
             Move();
 
-            return collision.CheckCollision(entities, MapSize, Speed, ref Score);
+            return collision.CheckCollision(entities, ObjectSize, Speed, ref Score);
         }
-         
+
         public void Move()
         {
             switch (entities.player.Dir)
@@ -82,7 +91,7 @@ namespace Model
                     break;
             }
 
-            for(int i = 0; i < entities.enemies.Count; i++)
+            for (int i = 0; i < entities.enemies.Count; i++)
             {
                 switch (entities.enemies[i].Dir)
                 {
@@ -154,9 +163,12 @@ namespace Model
             entities.player.ChangeDirection(direction);
         }
 
-        public void Shoot()
+        public void PlayerShoot()
         {
-            entities = entities.player.Shoot(entities);
+            if (entities.player.Shoot())
+            {
+                entities.playerBullet.Add(new Bullet(new Position(entities.player.position.X + ((entities.player.size / 2) - (entities.player.size / 8)), entities.player.position.Y + ((entities.player.size / 2) - (entities.player.size / 8))), entities.player.Dir, entities.player.size / 4));
+            }
         }
     }
 }

@@ -35,19 +35,17 @@ namespace Control
                 case Keys.S:
                     tanksModel.ChangePlayerDirection(Direction.DOWN);
                     break;
+                case Keys.Space:
+                    tanksModel.PlayerShoot();
+                    break;
 
             }
 
         }
 
-        public void ReadShoot()
+        public void NewGame(StartInfo startInfo)
         {
-            tanksModel.Shoot();
-        }
-
-        public void NewGame(int MapSize, int Speed, int AppleCount, int EnemiesCount)
-        {
-            tanksModel.NewGame(MapSize, Speed, AppleCount, EnemiesCount);
+            tanksModel.NewGame(startInfo);
         }
 
         public bool Update(ref int Score)

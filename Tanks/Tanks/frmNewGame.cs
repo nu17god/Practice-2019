@@ -7,15 +7,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Model.Entities;
 
 namespace Tanks
 {
     public partial class frmNewGame : Form
     {
-        public int AppleCount { private set; get;}
-        public int TanksCount { private set; get; }
-        public int Speed { private set; get; }
-        public int MapSize { private set; get; }
+
+        public StartInfo startInfo;
 
         public frmNewGame()
         {
@@ -24,48 +23,53 @@ namespace Tanks
 
         private void btnOK_Click(object sender, EventArgs e)
         {
-            AppleCount = int.Parse(ctlAppleCount.Value.ToString());
-            TanksCount = int.Parse(ctlTanksCount.Value.ToString());
+            int appleCount = int.Parse(ctlAppleCount.Value.ToString());
+            int enemycount = int.Parse(ctlTanksCount.Value.ToString());
+            int speed;
+            int objectSize;
 
             switch (ctlSpeed.Value)
             {
                 case 1:
-                    Speed = 1;
+                    speed = 1;
                     break;
 
                 case 2:
-                    Speed = 2;
+                    speed = 2;
                     break;
 
                 case 3:
-                    Speed = 3;
+                    speed = 3;
                     break;
 
                 case 4:
-                    Speed = 4;
+                    speed = 4;
                     break;
 
                 case 5:
-                    Speed = 5;
+                    speed = 5;
                     break;
+                default:
+                    throw new Exception("Speed Control exception");
             }
 
             if(btnSize1.Checked == true)
             {
-                MapSize = 64;
+                objectSize = 64;
             }
             else if(btnSize2.Checked == true)
             {
-                MapSize = 32;
+                objectSize = 32;
             }
             else if(btnSize3.Checked == true)
             {
-                MapSize = 16;
+                objectSize = 16;
             }
             else
             {
                 throw new Exception("???");
             }
+            startInfo = new StartInfo(objectSize, speed, appleCount, enemycount);
             this.DialogResult = DialogResult.OK;
             this.Close();
         }

@@ -48,6 +48,7 @@
     <Compile Include="Entities\Direction.cs" />
     <Compile Include="Entities\Enemy.cs" />
     <Compile Include="Entities\ObjectCollision.cs" />
+    <Compile Include="Entities\StartInfo.cs" />
     <Compile Include="Entities\Wall.cs" />
     <Compile Include="InitializeGame.cs" />
     <Compile Include="Entities\MovableObject.cs" />
