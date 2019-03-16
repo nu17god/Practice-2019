@@ -25,16 +25,16 @@ namespace Model.Entities
             switch (direction)
             {
                 case Direction.LEFT:
-                    objectView = new ObjectView("Enemy_left.png", size);
+                    objectView = new ObjectView(size, new Position(16,17));
                     break;
                 case Direction.RIGHT:
-                    objectView = new ObjectView("Enemy_right.png", size);
+                    objectView = new ObjectView(size, new Position(32, 17));
                     break;
                 case Direction.UP:
-                    objectView = new ObjectView("Enemy_up.png", size);
+                    objectView = new ObjectView(size, new Position(48, 17));
                     break;
                 case Direction.DOWN:
-                    objectView = new ObjectView("Enemy_down.png", size);
+                    objectView = new ObjectView(size, new Position(0, 17));
                     break;
             }
         }
@@ -45,19 +45,19 @@ namespace Model.Entities
             switch (this.Dir)
             {
                 case Direction.LEFT:
-                    objectView = new ObjectView("Enemy_right.png", size);
+                    objectView = new ObjectView(size, new Position(32, 17));
                     this.Dir = Direction.RIGHT;
                     break;
                 case Direction.RIGHT:
-                    objectView = new ObjectView("Enemy_left.png", size);
+                    objectView = new ObjectView(size, new Position(16, 17));
                     this.Dir = Direction.LEFT;
                     break;
                 case Direction.UP:
-                    objectView = new ObjectView("Enemy_down.png", size);
+                    objectView = new ObjectView(size, new Position(0, 17));
                     this.Dir = Direction.DOWN;
                     break;
                 case Direction.DOWN:
-                    objectView = new ObjectView("Enemy_up.png", size);
+                    objectView = new ObjectView(size, new Position(48, 17));
                     this.Dir = Direction.UP;
                     break;
             }

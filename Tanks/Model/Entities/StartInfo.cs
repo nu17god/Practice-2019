@@ -8,29 +8,10 @@ namespace Model.Entities
 {
     public class StartInfo
     {
-        private int speed;
         private int objectsSize;
         private int appleCount;
         private int enemyCount;
 
-        public int Speed
-        {
-            get
-            {
-                return speed;
-            }
-            set
-            {
-                if(value <= 5 && value >= 1)
-                {
-                    speed = value;
-                }
-                else
-                {
-                    throw new ArgumentException("Speed Error");
-                }
-            }
-        }
 
         public int ObjectsSize
         {
@@ -97,10 +78,9 @@ namespace Model.Entities
             }
         }
 
-        public StartInfo(int objectsSize, int speed, int appleCount, int enemycount)
+        public StartInfo(int objectsSize, int appleCount, int enemycount)
         {
             this.ObjectsSize = objectsSize;
-            this.Speed = speed;
             this.AppleCount = appleCount;
             this.EnemyCount = enemycount;
         }
@@ -108,7 +88,6 @@ namespace Model.Entities
         public StartInfo()
         {
             this.ObjectsSize = 32;
-            this.Speed = 3;
             this.AppleCount = 5;
             this.EnemyCount = 5;
         }   

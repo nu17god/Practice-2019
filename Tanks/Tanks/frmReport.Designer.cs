@@ -47,7 +47,7 @@
             this.ctlData.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ctlData.Location = new System.Drawing.Point(0, 0);
             this.ctlData.Name = "ctlData";
-            this.ctlData.Size = new System.Drawing.Size(447, 413);
+            this.ctlData.Size = new System.Drawing.Size(463, 413);
             this.ctlData.TabIndex = 0;
             // 
             // dataFirstCol
@@ -78,7 +78,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(447, 413);
+            this.ClientSize = new System.Drawing.Size(463, 413);
             this.Controls.Add(this.ctlData);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;

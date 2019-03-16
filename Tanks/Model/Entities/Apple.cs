@@ -13,7 +13,7 @@ namespace Model.Entities
 
         public Apple(Position position, int size) : base (position, size)
         {
-            objectView = new ObjectView("Apple.png", size);
+            objectView = new ObjectView(size, new Position(0,51));
         }
 
         public void Draw(Graphics graphics)

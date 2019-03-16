@@ -23,16 +23,16 @@ namespace Model.Entities
             switch (direction)
             {
                 case Direction.LEFT:
-                    objectView = new ObjectView("Player_left.png", size);
+                    objectView = new ObjectView(size, new Position(16, 0));
                     break;
                 case Direction.RIGHT:
-                    objectView = new ObjectView("Player_right.png", size);
+                    objectView = new ObjectView(size, new Position(32, 0));
                     break;
                 case Direction.UP:
-                    objectView = new ObjectView("Player_up.png", size);
+                    objectView = new ObjectView(size, new Position(48, 0));
                     break;
                 case Direction.DOWN:
-                    objectView = new ObjectView("Player_down.png", size);
+                    objectView = new ObjectView(size, new Position(0, 0));
                     break;
             }
         }
@@ -51,6 +51,30 @@ namespace Model.Entities
             }
 
             return false;
+        }
+
+        public void ReverseDirection()
+        {
+
+            switch (this.Dir)
+            {
+                case Direction.LEFT:
+                    objectView = new ObjectView(size, new Position(32, 0));
+                    this.Dir = Direction.RIGHT;
+                    break;
+                case Direction.RIGHT:
+                    objectView = new ObjectView(size, new Position(16, 0));
+                    this.Dir = Direction.LEFT;
+                    break;
+                case Direction.UP:
+                    objectView = new ObjectView(size, new Position(0, 0));
+                    this.Dir = Direction.DOWN;
+                    break;
+                case Direction.DOWN:
+                    objectView = new ObjectView(size, new Position(48, 0));
+                    this.Dir = Direction.UP;
+                    break;
+            }
         }
     }
 }

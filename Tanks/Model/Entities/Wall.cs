@@ -13,7 +13,7 @@ namespace Model.Entities
 
         public Wall(Position position, int size):base (position, size)
         {
-            objectView = new ObjectView("Wall.png", size);
+            objectView = new ObjectView(size, new Position(0, 34));
         }
 
         public void Draw(Graphics graphics)

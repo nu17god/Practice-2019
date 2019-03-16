@@ -13,7 +13,7 @@ namespace Model.Entities
 
         public Bullet(Position position, Direction direction, int size) : base (position, direction, size)
         {
-            objectView = new ObjectView("shot.png", size);
+            objectView = new ObjectView(size, new Position(0, 68), 3);
         }
 
         public void Draw(Graphics graphics)

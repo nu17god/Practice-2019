@@ -19,7 +19,7 @@ namespace Tanks
             this.Location = new Point(parentLocation.X + 640, parentLocation.Y);
 
             InitializeComponent();
-
+            ctlData.Columns.Clear();
             ctlData.Columns.Add("FirstCollumn", "Player");
             ctlData.Columns.Add("SecondCollumn", "Enemies");
             ctlData.Columns.Add("ThirdCollumn", "Apples");

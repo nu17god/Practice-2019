@@ -13,6 +13,7 @@ namespace Tanks
 {
     public partial class frmNewGame : Form
     {
+        public int Speed;
 
         public StartInfo startInfo;
 
@@ -25,29 +26,28 @@ namespace Tanks
         {
             int appleCount = int.Parse(ctlAppleCount.Value.ToString());
             int enemycount = int.Parse(ctlTanksCount.Value.ToString());
-            int speed;
             int objectSize;
 
             switch (ctlSpeed.Value)
             {
                 case 1:
-                    speed = 1;
+                    Speed = 125;
                     break;
 
                 case 2:
-                    speed = 2;
+                    Speed = 100;
                     break;
 
                 case 3:
-                    speed = 3;
+                    Speed = 75;
                     break;
 
                 case 4:
-                    speed = 4;
+                    Speed = 50;
                     break;
 
                 case 5:
-                    speed = 5;
+                    Speed = 25;
                     break;
                 default:
                     throw new Exception("Speed Control exception");
@@ -69,7 +69,7 @@ namespace Tanks
             {
                 throw new Exception("???");
             }
-            startInfo = new StartInfo(objectSize, speed, appleCount, enemycount);
+            startInfo = new StartInfo(objectSize, appleCount, enemycount);
             this.DialogResult = DialogResult.OK;
             this.Close();
         }

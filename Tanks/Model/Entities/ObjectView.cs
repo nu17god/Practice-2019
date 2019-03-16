@@ -10,20 +10,30 @@ namespace Model.Entities
 {
     public class ObjectView
     {
-        int size = 64;
+        int size;
+        int realSize;
         Image image;
-        string src;
+        public Position position;
 
-        public ObjectView(string src, int size)
+        public ObjectView(int size, Position position)
         {
+            this.realSize = 16;
+            this.position = position;
             this.size = size;
-            this.image = Image.FromFile("..//..//Images//" + src);
-            this.src = src;
+            this.image = Image.FromFile("..//..//..//Model//Images//Sprite.png");
+        }
+
+        public ObjectView(int size, Position position, int realSize)
+        {
+            this.realSize = realSize;
+            this.position = position;
+            this.size = size;
+            this.image = Image.FromFile("..//..//..//Model//Images//Sprite.png");
         }
 
         public void Draw(Graphics graphics, int x, int y)
         {
-            graphics.DrawImage(image, new Rectangle(x, y, size, size));
+            graphics.DrawImage(image, new Rectangle(x, y, size, size), new Rectangle(position.X, position.Y, realSize, realSize), GraphicsUnit.Pixel);
         }
     }
 }

@@ -66,18 +66,12 @@ namespace Model.Entities
 
         public void InitializePlayer()
         {
-            entities.player = new Player(new Position(MapSize, MapSize), Direction.RIGHT, MapSize);
+            entities.player = new Player(new Position(0, 0), Direction.RIGHT, MapSize);
         }
 
         public void InitializeWalls()
         {
-            for(int i = 0; i <= 640; i+= MapSize)
-            {
-                entities.walls.Add(new Wall(new Position( i, 0), MapSize));
-                entities.walls.Add(new Wall(new Position( 0, i), MapSize));
-                entities.walls.Add(new Wall(new Position( 640 - MapSize, i), MapSize));
-                entities.walls.Add(new Wall(new Position( i, 640 - MapSize), MapSize));
-            }
+
 
             for(int i = MapSize * 3; i <= 640-(MapSize * 4); i+= MapSize)
             {

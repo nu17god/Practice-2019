@@ -167,6 +167,7 @@ namespace Tanks
                 GameOver = false;
                 Score = 0;
                 ctlTime.Enabled = true;
+                ctlTime.Interval = newGameForm.Speed;
                 DrawTanks();
 
                 if (reportForm != null && !reportForm.IsDisposed && reportForm.Visible)

@@ -122,7 +122,7 @@
             this.ctlSpeed.Name = "ctlSpeed";
             this.ctlSpeed.Size = new System.Drawing.Size(75, 45);
             this.ctlSpeed.TabIndex = 5;
-            this.ctlSpeed.Value = 3;
+            this.ctlSpeed.Value = 2;
             // 
             // lblSpeed
             // 

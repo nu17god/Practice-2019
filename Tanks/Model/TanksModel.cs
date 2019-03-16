@@ -14,14 +14,12 @@ namespace Model
         public ObjectCollision collision = new ObjectCollision();
         public InitializeGame initializeGame;
 
-        public int Speed;
         public int ObjectSize;
         public int AppleCount;
         public int EnemiesCount;
 
         public TanksModel(EntitiesList entities, StartInfo startInfo)
         {
-            this.Speed = startInfo.Speed;
             this.ObjectSize = startInfo.ObjectsSize;
             this.AppleCount = startInfo.AppleCount;
             this.EnemiesCount = startInfo.EnemyCount;
@@ -30,7 +28,6 @@ namespace Model
 
         public void NewGame(StartInfo startInfo)
         {
-            this.Speed = startInfo.Speed;
             this.ObjectSize = startInfo.ObjectsSize;
             this.AppleCount = startInfo.AppleCount;
             this.EnemiesCount = startInfo.EnemyCount;
@@ -67,7 +64,7 @@ namespace Model
 
             Move();
 
-            return collision.CheckCollision(entities, ObjectSize, Speed, ref Score);
+            return collision.CheckCollision(entities, ObjectSize, ref Score);
         }
 
         public void Move()
@@ -75,19 +72,19 @@ namespace Model
             switch (entities.player.Dir)
             {
                 case Direction.LEFT:
-                    entities.player.position.X -= Speed;
+                    entities.player.position.X -= 2;
                     break;
 
                 case Direction.RIGHT:
-                    entities.player.position.X += Speed;
+                    entities.player.position.X += 2;
                     break;
 
                 case Direction.UP:
-                    entities.player.position.Y -= Speed;
+                    entities.player.position.Y -= 2;
                     break;
 
                 case Direction.DOWN:
-                    entities.player.position.Y += Speed;
+                    entities.player.position.Y += 2;
                     break;
             }
 
@@ -96,19 +93,19 @@ namespace Model
                 switch (entities.enemies[i].Dir)
                 {
                     case Direction.LEFT:
-                        entities.enemies[i].position.X -= Speed;
+                        entities.enemies[i].position.X -= 2;
                         break;
 
                     case Direction.RIGHT:
-                        entities.enemies[i].position.X += Speed;
+                        entities.enemies[i].position.X += 2;
                         break;
 
                     case Direction.UP:
-                        entities.enemies[i].position.Y -= Speed;
+                        entities.enemies[i].position.Y -= 2;
                         break;
 
                     case Direction.DOWN:
-                        entities.enemies[i].position.Y += Speed;
+                        entities.enemies[i].position.Y += 2;
                         break;
                 }
             }
@@ -118,19 +115,19 @@ namespace Model
                 switch (entities.bullets[i].Dir)
                 {
                     case Direction.LEFT:
-                        entities.bullets[i].position.X -= Speed * 2;
+                        entities.bullets[i].position.X -= 4;
                         break;
 
                     case Direction.RIGHT:
-                        entities.bullets[i].position.X += Speed * 2;
+                        entities.bullets[i].position.X += 4;
                         break;
 
                     case Direction.UP:
-                        entities.bullets[i].position.Y -= Speed * 2;
+                        entities.bullets[i].position.Y -= 4;
                         break;
 
                     case Direction.DOWN:
-                        entities.bullets[i].position.Y += Speed * 2;
+                        entities.bullets[i].position.Y += 4;
                         break;
                 }
             }
@@ -140,19 +137,19 @@ namespace Model
                 switch (entities.playerBullet[i].Dir)
                 {
                     case Direction.LEFT:
-                        entities.playerBullet[i].position.X -= Speed * 2;
+                        entities.playerBullet[i].position.X -= 4;
                         break;
 
                     case Direction.RIGHT:
-                        entities.playerBullet[i].position.X += Speed * 2;
+                        entities.playerBullet[i].position.X += 4;
                         break;
 
                     case Direction.UP:
-                        entities.playerBullet[i].position.Y -= Speed * 2;
+                        entities.playerBullet[i].position.Y -= 4;
                         break;
 
                     case Direction.DOWN:
-                        entities.playerBullet[i].position.Y += Speed * 2;
+                        entities.playerBullet[i].position.Y += 4;
                         break;
                 }
             }
