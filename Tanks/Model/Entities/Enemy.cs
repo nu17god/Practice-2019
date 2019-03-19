@@ -10,6 +10,10 @@ namespace Model.Entities
     public class Enemy : MovableObject
     {
         ObjectView objectView;
+        ObjectView objectViewLeft;
+        ObjectView objectViewRight;
+        ObjectView objectViewUp;
+        ObjectView objectViewDown;
 
         public int cooldown;
 
@@ -25,16 +29,36 @@ namespace Model.Entities
             switch (direction)
             {
                 case Direction.LEFT:
-                    objectView = new ObjectView(size, new Position(16,17));
+                    if (objectViewLeft == null)
+                    {
+                        objectViewLeft = new ObjectView(size, new Position(16, 17));
+                    }
+
+                    objectView = objectViewLeft;
                     break;
                 case Direction.RIGHT:
-                    objectView = new ObjectView(size, new Position(32, 17));
+                    if (objectViewRight == null)
+                    {
+                        objectViewRight = new ObjectView(size, new Position(32, 17));
+                    }
+
+                    objectView = objectViewRight;
                     break;
                 case Direction.UP:
-                    objectView = new ObjectView(size, new Position(48, 17));
+                    if (objectViewUp == null)
+                    {
+                        objectViewUp = new ObjectView(size, new Position(48, 17));
+                    }
+
+                    objectView = objectViewUp;
                     break;
                 case Direction.DOWN:
-                    objectView = new ObjectView(size, new Position(0, 17));
+                    if (objectViewDown == null)
+                    {
+                        objectViewDown = new ObjectView(size, new Position(0, 17));
+                    }
+
+                    objectView = objectViewDown;
                     break;
             }
         }
@@ -45,19 +69,39 @@ namespace Model.Entities
             switch (this.Dir)
             {
                 case Direction.LEFT:
-                    objectView = new ObjectView(size, new Position(32, 17));
+                    if (objectViewRight == null)
+                    {
+                        objectViewRight = new ObjectView(size, new Position(32, 17));
+                    }
+
+                    objectView = objectViewRight;
                     this.Dir = Direction.RIGHT;
                     break;
                 case Direction.RIGHT:
-                    objectView = new ObjectView(size, new Position(16, 17));
+                    if (objectViewLeft == null)
+                    {
+                        objectViewLeft = new ObjectView(size, new Position(16, 17));
+                    }
+
+                    objectView = objectViewLeft;
                     this.Dir = Direction.LEFT;
                     break;
                 case Direction.UP:
-                    objectView = new ObjectView(size, new Position(0, 17));
+                    if (objectViewDown == null)
+                    {
+                        objectViewDown = new ObjectView(size, new Position(0, 17));
+                    }
+
+                    objectView = objectViewDown;
                     this.Dir = Direction.DOWN;
                     break;
                 case Direction.DOWN:
-                    objectView = new ObjectView(size, new Position(48, 17));
+                    if (objectViewUp == null)
+                    {
+                        objectViewUp = new ObjectView(size, new Position(48, 17));
+                    }
+
+                    objectView = objectViewUp;
                     this.Dir = Direction.UP;
                     break;
             }

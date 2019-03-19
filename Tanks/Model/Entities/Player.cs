@@ -10,6 +10,11 @@ namespace Model.Entities
     public class Player : MovableObject
     {
         ObjectView objectView;
+        ObjectView objectViewLeft;
+        ObjectView objectViewRight;
+        ObjectView objectViewUp;
+        ObjectView objectViewDown;
+
         public int Cooldown = 16;
 
         public Player(Position position, Direction direction, int size) : base(position, direction, size)
@@ -23,16 +28,36 @@ namespace Model.Entities
             switch (direction)
             {
                 case Direction.LEFT:
-                    objectView = new ObjectView(size, new Position(16, 0));
+                    if (objectViewLeft == null)
+                    {
+                        objectViewLeft = new ObjectView(size, new Position(16, 0));     
+                    }
+
+                    objectView = objectViewLeft;
                     break;
                 case Direction.RIGHT:
-                    objectView = new ObjectView(size, new Position(32, 0));
+                    if (objectViewRight == null)
+                    {
+                        objectViewRight = new ObjectView(size, new Position(32, 0));
+                    }
+
+                    objectView = objectViewRight;
                     break;
                 case Direction.UP:
-                    objectView = new ObjectView(size, new Position(48, 0));
+                    if (objectViewUp == null)
+                    {
+                        objectViewUp = new ObjectView(size, new Position(48, 0));
+                    }
+
+                    objectView = objectViewUp;
                     break;
                 case Direction.DOWN:
-                    objectView = new ObjectView(size, new Position(0, 0));
+                    if (objectViewDown == null)
+                    {
+                        objectViewDown = new ObjectView(size, new Position(0, 0));
+                    }
+
+                    objectView = objectViewDown;
                     break;
             }
         }
@@ -59,19 +84,39 @@ namespace Model.Entities
             switch (this.Dir)
             {
                 case Direction.LEFT:
-                    objectView = new ObjectView(size, new Position(32, 0));
+                    if (objectViewRight == null)
+                    {
+                        objectViewRight = new ObjectView(size, new Position(32, 0));
+                    }
+
+                    objectView = objectViewRight;
                     this.Dir = Direction.RIGHT;
                     break;
                 case Direction.RIGHT:
-                    objectView = new ObjectView(size, new Position(16, 0));
+                    if (objectViewLeft == null)
+                    {
+                        objectViewLeft = new ObjectView(size, new Position(16, 0));
+                    }
+
+                    objectView = objectViewLeft;
                     this.Dir = Direction.LEFT;
                     break;
                 case Direction.UP:
-                    objectView = new ObjectView(size, new Position(0, 0));
+                    if (objectViewDown == null)
+                    {
+                        objectViewDown = new ObjectView(size, new Position(0, 0));
+                    }
+
+                    objectView = objectViewDown;
                     this.Dir = Direction.DOWN;
                     break;
                 case Direction.DOWN:
-                    objectView = new ObjectView(size, new Position(48, 0));
+                    if (objectViewUp == null)
+                    {
+                        objectViewUp = new ObjectView(size, new Position(48, 0));
+                    }
+
+                    objectView = objectViewUp;
                     this.Dir = Direction.UP;
                     break;
             }
