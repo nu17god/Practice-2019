@@ -47,6 +47,7 @@
             this.ctlData.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ctlData.Location = new System.Drawing.Point(0, 0);
             this.ctlData.Name = "ctlData";
+            this.ctlData.ReadOnly = true;
             this.ctlData.Size = new System.Drawing.Size(463, 413);
             this.ctlData.TabIndex = 0;
             // 
