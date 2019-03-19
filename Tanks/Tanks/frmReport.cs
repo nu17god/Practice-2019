@@ -19,62 +19,52 @@ namespace Tanks
             this.Location = new Point(parentLocation.X + 640, parentLocation.Y);
 
             InitializeComponent();
-            ctlData.Columns.Clear();
-            ctlData.Columns.Add("FirstCollumn", "Player");
-            ctlData.Columns.Add("SecondCollumn", "Enemies");
-            ctlData.Columns.Add("ThirdCollumn", "Apples");
-            ctlData.Columns.Add("FourthCollumn", "Walls");
+            Update(entities);
 
-            ctlData.Rows.Add(entities.walls.Count - 1);
 
-            ctlData.Rows[0].Cells[0].Value = entities.player.position.ToString();
-
-            for (int i = 0; i < entities.apples.Count; i++)
-            {
-                ctlData.Rows[i].Cells[2].Value = entities.apples[i].position.ToString();
-            }
-
-            for (int i = 0; i < entities.walls.Count; i++)
-            {
-                ctlData.Rows[i].Cells[3].Value = entities.walls[i].position.ToString();
-            }
-
-            for (int i = 0; i < entities.enemies.Count; i++)
-            {
-                ctlData.Rows[i].Cells[1].Value = entities.enemies[i].position.ToString();
-            }
         }
 
         public void Update(EntitiesList entities)
         {
-            if (!ctlData.Rows[0].Cells[0].Value.Equals(entities.player.position.ToString()))
-            {
-                ctlData.Rows[0].Cells[0].Value = entities.player.position.ToString();
-            }
+            ctlData.Columns.Clear();
+            ctlData.Columns.Add("FirstCollumn", "Type");
+            ctlData.Columns.Add("SecondCollumn", "X");
+            ctlData.Columns.Add("ThirdCollumn", "Y");
 
-            for (int i = 0; i < entities.enemies.Count; i++)
+            int index = entities.walls.Count + 1 + entities.apples.Count + entities.enemies.Count;
+            int current = 0;
+
+            ctlData.Rows.Add(index);
+
+            ctlData.Rows[current].Cells[0].Value = "Player";
+            ctlData.Rows[current].Cells[1].Value = entities.player.position.X;
+            ctlData.Rows[current].Cells[2].Value = entities.player.position.Y;
+            current++;
+
+            for ( int i = 0; i < entities.enemies.Count; i++)
             {
-                if (!ctlData.Rows[i].Cells[1].Value.Equals(entities.enemies[i].position.ToString()))
-                {
-                    ctlData.Rows[i].Cells[1].Value = entities.enemies[i].position.ToString();
-                }
+                ctlData.Rows[current].Cells[0].Value = "Enemy";
+                ctlData.Rows[current].Cells[1].Value = entities.enemies[i].position.X;
+                ctlData.Rows[current].Cells[2].Value = entities.enemies[i].position.Y;
+                current++;
             }
 
             for (int i = 0; i < entities.apples.Count; i++)
             {
-                if (!ctlData.Rows[i].Cells[2].Value.Equals(entities.apples[i].position.ToString()))
-                {
-                    ctlData.Rows[i].Cells[2].Value = entities.apples[i].position.ToString();
-                }
+                ctlData.Rows[current].Cells[0].Value = "Apple";
+                ctlData.Rows[current].Cells[1].Value = entities.apples[i].position.X;
+                ctlData.Rows[current].Cells[2].Value = entities.apples[i].position.Y;
+                current++;
             }
 
             for (int i = 0; i < entities.walls.Count; i++)
             {
-                if (!ctlData.Rows[i].Cells[3].Value.Equals(entities.walls[i].position.ToString()))
-                {
-                    ctlData.Rows[i].Cells[3].Value = entities.walls[i].position.ToString();
-                }
+                ctlData.Rows[current].Cells[0].Value = "Wall";
+                ctlData.Rows[current].Cells[1].Value = entities.walls[i].position.X;
+                ctlData.Rows[current].Cells[2].Value = entities.walls[i].position.Y;
+                current++;
             }
+
         }
     }
 }

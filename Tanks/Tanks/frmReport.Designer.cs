@@ -47,6 +47,7 @@
             this.ctlData.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ctlData.Location = new System.Drawing.Point(0, 0);
             this.ctlData.Name = "ctlData";
+            this.ctlData.ReadOnly = true;
             this.ctlData.Size = new System.Drawing.Size(463, 413);
             this.ctlData.TabIndex = 0;
             // 
@@ -55,24 +56,28 @@
             this.dataFirstCol.HeaderText = "Player";
             this.dataFirstCol.Name = "dataFirstCol";
             this.dataFirstCol.ReadOnly = true;
+            this.dataFirstCol.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
             // dataSecondCol
             // 
             this.dataSecondCol.HeaderText = "Enemies";
             this.dataSecondCol.Name = "dataSecondCol";
             this.dataSecondCol.ReadOnly = true;
+            this.dataSecondCol.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
             // dataThirdCol
             // 
             this.dataThirdCol.HeaderText = "Apples";
             this.dataThirdCol.Name = "dataThirdCol";
             this.dataThirdCol.ReadOnly = true;
+            this.dataThirdCol.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
             // dataFourthCol
             // 
             this.dataFourthCol.HeaderText = "Walls";
             this.dataFourthCol.Name = "dataFourthCol";
             this.dataFourthCol.ReadOnly = true;
+            this.dataFourthCol.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
             // frmReport
             // 
